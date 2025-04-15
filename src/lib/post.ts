@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { CategoryDetail, Post, PostMatter } from "@/types/post";
+import { CategoryDetail, Post, PostMatter } from "@/config/types";
 import readingTime from "reading-time";
 import dayjs from "dayjs";
 import { sync } from "glob";

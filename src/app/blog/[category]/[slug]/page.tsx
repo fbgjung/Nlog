@@ -1,24 +1,28 @@
-import { getPostList } from "@/lib/post";
+import { getPostList, parsePostAbstract, getPostPaths } from "@/lib/post";
 import { notFound } from "next/navigation";
 import { PostHeader } from "@/components/post_detail/PostHeader";
 import { PostBody } from "@/components/post_detail/PostBody";
 
-interface Props {
-  params: {
-    category: string;
-    slug: string;
-  };
+type Props = {
+  params: { category: string; slug: string };
+};
+
+export async function generateStaticParams() {
+  const postPaths: string[] = getPostPaths();
+  const paramList = postPaths
+    .map((path) => parsePostAbstract(path))
+    .map((item) => ({ category: item.category, slug: item.slug }));
+  return paramList;
 }
 
-export default async function PostDetailPage(props: Promise<Props>) {
-  const { params } = await props;
-  const { category, slug } = params;
-
+export default async function PostDetailPage({
+  params: { category, slug },
+}: Props) {
   const posts = await getPostList(category);
   const post = posts.find((post) => post.slug === slug);
 
   if (!post) {
-    notFound();
+    return notFound();
   }
 
   return (

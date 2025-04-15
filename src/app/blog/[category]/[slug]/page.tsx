@@ -3,14 +3,15 @@ import { notFound } from "next/navigation";
 import { PostHeader } from "@/components/post_detail/PostHeader";
 import { PostBody } from "@/components/post_detail/PostBody";
 
-interface Props {
+interface PageProps {
   params: {
     category: string;
     slug: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default async function PostDetailPage({ params }: Props) {
+export default async function PostDetailPage({ params }: PageProps) {
   const posts = await getPostList(params.category);
   const post = posts.find((post) => post.slug === params.slug);
 

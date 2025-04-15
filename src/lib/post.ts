@@ -78,9 +78,11 @@ export const getSortedPostList = async (category?: string) => {
 };
 
 /* 🐯 category 목록 조회 */
-export const getCategoryList = async () => {
-  const postPaths = getPostPaths();
-  const categoryList = postPaths.map((postPath) => postPath.split("/")[0]);
+export const getCategoryList = () => {
+  const postPaths: string[] = getPostPaths();
+  const categoryList: string[] = postPaths.map(
+    (postPath) => postPath.split("/")[0]
+  );
   return categoryList;
 };
 

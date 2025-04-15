@@ -1,7 +1,7 @@
-import { getPostList, parsePostAbstract, getPostPaths } from "@/lib/post";
-import { notFound } from "next/navigation";
+import { parsePostAbstract, getPostPaths, getPostDetail } from "@/lib/post";
 import { PostHeader } from "@/components/post_detail/PostHeader";
 import { PostBody } from "@/components/post_detail/PostBody";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { category: string; slug: string };
@@ -18,8 +18,7 @@ export function generateStaticParams() {
 export default async function PostDetailPage({
   params: { category, slug },
 }: Props) {
-  const posts = await getPostList(category);
-  const post = posts.find((post) => post.slug === slug);
+  const post = await getPostDetail(category, slug);
 
   if (!post) {
     return notFound();

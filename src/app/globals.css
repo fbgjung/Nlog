@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* @layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Pretendard";
+  }
+} */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -15,12 +15,11 @@ export function generateStaticParams() {
   return paramList;
 }
 
-export default async function PostDetailPage({
-  params,
-}: {
-  params: { category: string; slug: string };
-}) {
-  const post = await getPostDetail(params.category, params.slug);
+export type paramsType = Promise<{ category: string; slug: string }>;
+
+export default async function PostDetailPage(props: { params: paramsType }) {
+  const { category, slug } = await props.params;
+  const post = await getPostDetail(category, slug);
 
   if (!post) {
     return notFound();

@@ -1,4 +1,4 @@
-import { Post } from "@/types/post";
+import { Post } from "@/config/types";
 import { CalendarDays, Clock } from "lucide-react";
 
 interface PostHeaderProps {

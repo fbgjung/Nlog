@@ -1,4 +1,4 @@
-import { Post } from "@/types/post";
+import { Post } from "@/config/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface PostBodyProps {

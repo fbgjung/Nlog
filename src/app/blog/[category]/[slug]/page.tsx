@@ -3,9 +3,9 @@ import { PostHeader } from "@/components/post_detail/PostHeader";
 import { PostBody } from "@/components/post_detail/PostBody";
 import { notFound } from "next/navigation";
 
-type Props = {
-  params: { category: string; slug: string };
-};
+// type Props = {
+//   params: { category: string; slug: string };
+// };
 
 export function generateStaticParams() {
   const postPaths: string[] = getPostPaths();
@@ -16,9 +16,11 @@ export function generateStaticParams() {
 }
 
 export default async function PostDetailPage({
-  params: { category, slug },
-}: Props) {
-  const post = await getPostDetail(category, slug);
+  params,
+}: {
+  params: { category: string; slug: string };
+}) {
+  const post = await getPostDetail(params.category, params.slug);
 
   if (!post) {
     return notFound();

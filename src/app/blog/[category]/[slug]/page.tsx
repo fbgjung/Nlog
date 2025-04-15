@@ -7,7 +7,7 @@ type Props = {
   params: { category: string; slug: string };
 };
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const postPaths: string[] = getPostPaths();
   const paramList = postPaths
     .map((path) => parsePostAbstract(path))

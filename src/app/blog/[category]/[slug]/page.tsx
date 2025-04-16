@@ -2,6 +2,7 @@ import { parsePostAbstract, getPostPaths, getPostDetail } from "@/lib/post";
 import { PostHeader } from "@/components/post_detail/PostHeader";
 import { PostBody } from "@/components/post_detail/PostBody";
 import { notFound } from "next/navigation";
+import Giscus from "@/components/post_detail/Giscus";
 
 // type Props = {
 //   params: { category: string; slug: string };
@@ -30,6 +31,7 @@ export default async function PostDetailPage(props: { params: paramsType }) {
       <PostHeader post={post} />
       <article className="relative">
         <PostBody post={post} />
+        <Giscus />
       </article>
     </div>
   );

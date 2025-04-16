@@ -25,7 +25,7 @@ export default function Giscus() {
 
     scriptElem.setAttribute('data-repo', repoName);
     scriptElem.setAttribute('data-repo-id', repoId);
-    scriptElem.setAttribute('data-category', 'Comments');
+    scriptElem.setAttribute('data-category', 'Comment');
     scriptElem.setAttribute('data-category-id', categoryId);
     scriptElem.setAttribute('data-mapping', 'pathname');
     scriptElem.setAttribute('data-strict', '0');

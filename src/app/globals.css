@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
 
 @custom-variant dark (&:is(.dark *));
 
-/* @layer base {
+@layer base {
   * {
     @apply border-border;
   }
@@ -12,7 +13,7 @@
     @apply bg-background text-foreground;
     font-family: "Pretendard";
   }
-} */
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -123,11 +124,11 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+@layer typography {
+  .prose h2 {
+    @apply text-gray-600;
   }
-  body {
-    @apply bg-background text-foreground;
+  .prose h3 {
+    @apply text-gray-500;
   }
 }

@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full scroll-my-20 scroll-smooth">
-      <body className="min-h-screen flex flex-col">
+      <body className="font-pretendard min-h-screen flex flex-col">
         <Header />
         <main className="mt-[64px] flex-1">{children}</main>
         <Footer />

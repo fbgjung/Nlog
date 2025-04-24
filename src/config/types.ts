@@ -19,3 +19,9 @@ export interface CategoryDetail {
   publicName: string;
   count: number;
 }
+
+export interface HeadingItem {
+  text: string;
+  link: string;
+  indent: number;
+}

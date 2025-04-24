@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/layouts/Header";
 import { Footer } from "@/layouts/Footer";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "류금정 개발 블로그",
@@ -19,6 +20,9 @@ export default function RootLayout({
         <Header />
         <main className="mt-[64px] flex-1">{children}</main>
         <Footer />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
